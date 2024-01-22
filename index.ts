@@ -22,7 +22,7 @@ function start(gameState: GameState): void {
 }
 
 function end(gameState: GameState): void {
-    console.log('GAME OVER\n');
+    console.log('GAME OVER');
 }
 
 function move(gameState: GameState): MoveResponse {

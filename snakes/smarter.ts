@@ -22,7 +22,6 @@ export default function move(gameState: GameState) {
     }
 
     const move = moves[Math.floor(Math.random() * moves.length)];
-    console.log(`MOVE ${gameState.turn}: ${move}`);
     return { move: move };
 }
 

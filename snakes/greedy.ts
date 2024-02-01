@@ -1,7 +1,6 @@
 import { Battlesnake, Coord, GameState } from '../types';
 
 export default function move(gameState: GameState) {
-    console.log('move start')  
     const offsets: { [key: string]: Coord; } = {
         up: { x: 0, y: 1 },
         down: { x: 0, y: -1 },
@@ -103,8 +102,7 @@ function evaluate(position: Coord, gameState: GameState) {
     const foodPoints = width + height - foodDst; 
 
     if (!isSafe(position, avoid, width, height)) return { priority: -1, score: 0 };
-    console.log(getFloodSize(position, gameState) < gameState.you.body.length / 2);
-    if (getFloodSize(position, gameState) < gameState.you.body.length / 2) return { priority: 0, score: 0 };
+    if (getFloodSize(position, gameState) < gameState.you.body.length * 2 / 3) return { priority: 0, score: 0 };
     for (const snake of gameState.board.snakes) {
         if (!enemy(gameState.you, snake)) continue;
         if (!neighbor(position, snake.body[0])) continue;

@@ -40,10 +40,7 @@ function enemy(you: Battlesnake, he: Battlesnake) {
 }
 
 function neighbor(a: Coord, b: Coord) {
-    const offsetX = Math.abs(b.x - a.x);
-    const offsetY = Math.abs(b.y - a.x);
-    if (offsetX > 1 || offsetY > 1) return false;
-    return offsetX != offsetY;
+    return distance(a, b) === 1;
 }
 
 function distance(a: Coord, b: Coord) {
